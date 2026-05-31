@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bluesea Cafe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-blue-500 text-white p-4 fixed top-0 left-0 right-0 flex justify-between items-center">
+        <div class="logo">Bluesea Cafe</div>
+        <ul class="hidden md:flex items-center">
+            <li class="mr-6"><a href="#home" class="hover:text-gray-300">Home</a></li>
+            <li class="mr-6"><a href="#menu" class="hover:text-gray-300">Menu</a></li>
+            <li class="mr-6"><a href="#about" class="hover:text-gray-300">About Us</a></li>
+            <li class="mr-6"><a href="#contact" class="hover:text-gray-300">Contact</a></li>
+            <li class="mr-6"><a href="#gallery" class="hover:text-gray-300">Gallery</a></li>
+        </ul>
+        <div class="md:hidden flex justify-end">
+            <button id="menu-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Menu
+            </button>
+        </div>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden bg-blue-500 text-white p-4 fixed top-12 left-0 right-0 flex flex-col items-center">
+        <a href="#home" class="hover:text-gray-300 mb-4">Home</a>
+        <a href="#menu" class="hover:text-gray-300 mb-4">Menu</a>
+        <a href="#about" class="hover:text-gray-300 mb-4">About Us</a>
+        <a href="#contact" class="hover:text-gray-300 mb-4">Contact</a>
+        <a href="#gallery" class="hover:text-gray-300 mb-4">Gallery</a>
+    </div>
+    <section id="home" class="bg-blue-500 text-white p-4 mt-16 flex justify-center items-center flex-col">
+        <h1 class="text-3xl mb-4">Welcome to Bluesea Cafe</h1>
+        <button class="bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded">
+            Order Online
+        </button>
+    </section>
+    <section id="menu" class="bg-white p-4 mt-16 flex justify-center items-center flex-col">
+        <h1 class="text-3xl mb-4">Menu</h1>
+        <div class="flex flex-col items-center">
+            <div class="mb-4">
+                <h2 class="text-xl mb-2">Breakfast</h2>
+                <ul>
+                    <li class="mb-2">Eggs Benedict - $10</li>
+                    <li class="mb-2">Avocado Toast - $8</li>
+                    <li class="mb-2">Pancakes - $12</li>
+                </ul>
+            </div>
+            <div class="mb-4">
+                <h2 class="text-xl mb-2">Lunch</h2>
+                <ul>
+                    <li class="mb-2">Grilled Chicken - $15</li>
+                    <li class="mb-2">Salad - $10</li>
+                    <li class="mb-2">Sandwich - $12</li>
+                </ul>
+            </div>
+            <div class="mb-4">
+                <h2 class="text-xl mb-2">Dinner</h2>
+                <ul>
+                    <li class="mb-2">Steak - $25</li>
+                    <li class="mb-2">Seafood - $20</li>
+                    <li class="mb-2">Pasta - $18</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="bg-gray-200 p-4 mt-16 flex justify-center items-center flex-col">
+        <h1 class="text-3xl mb-4">About Us</h1>
+        <p class="text-lg mb-4">Bluesea Cafe is a coastal themed restaurant that serves a variety of dishes for breakfast, lunch, and dinner. Our goal is to provide a relaxing atmosphere for our customers to enjoy their meals.</p>
+    </section>
+    <section id="contact" class="bg-white p-4 mt-16 flex justify-center items-center flex-col">
+        <h1 class="text-3xl mb-4">Contact</h1>
+        <form class="flex flex-col items-center">
+            <input type="text" placeholder="Name" class="bg-gray-200 p-2 mb-4 w-64" />
+            <input type="email" placeholder="Email" class="bg-gray-200 p-2 mb-4 w-64" />
+            <textarea placeholder="Message" class="bg-gray-200 p-2 mb-4 w-64 h-32"></textarea>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Send
+            </button>
+        </form>
+    </section>
+    <section id="gallery" class="bg-gray-200 p-4 mt-16 flex justify-center items-center flex-col">
+        <h1 class="text-3xl mb-4">Gallery</h1>
+        <div class="flex flex-wrap justify-center">
+            <img src="https://via.placeholder.com/200" class="w-64 h-64 m-4" />
+            <img src="https://via.placeholder.com/200" class="w-64 h-64 m-4" />
+            <img src="https://via.placeholder.com/200" class="w-64 h-64 m-4" />
+            <img src="https://via.placeholder.com/200" class="w-64 h-64 m-4" />
+            <img src="https://via.placeholder.com/200" class="w-64 h-64 m-4" />
+            <img src="https://via.placeholder.com/200" class="w-64 h-64 m-4" />
+        </div>
+    </section>
+    <script>
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        const scrollLinks = document.querySelectorAll('a[href^="#"]');
+        scrollLinks.forEach((link) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const id = link.getAttribute('href');
+                document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

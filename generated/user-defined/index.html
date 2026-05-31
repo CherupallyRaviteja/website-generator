@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <nav class="fixed top-0 left-0 right-0 bg-gray-800 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">Restaurant Name</a>
+            <ul class="flex items-center space-x-4">
+                <li><a href="#home" class="text-lg">Home</a></li>
+                <li><a href="#menu" class="text-lg">Menu</a></li>
+                <li><a href="#about" class="text-lg">About</a></li>
+                <li><a href="#contact" class="text-lg">Contact</a></li>
+                <li><a href="#reservations" class="text-lg">Reservations</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="home" class="min-h-screen py-20 bg-gray-900">
+        <div class="container mx-auto p-4">
+            <h1 class="text-5xl font-bold mb-4">Welcome to our restaurant</h1>
+            <p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+            <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Order Online</button>
+        </div>
+    </section>
+    <section id="menu" class="min-h-screen py-20 bg-gray-800">
+        <div class="container mx-auto p-4">
+            <h1 class="text-5xl font-bold mb-4">Our Menu</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-gray-700 p-4 rounded">
+                    <h2 class="text-2xl font-bold mb-2">Item 1</h2>
+                    <p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p class="text-lg">$10.99</p>
+                </div>
+                <div class="bg-gray-700 p-4 rounded">
+                    <h2 class="text-2xl font-bold mb-2">Item 2</h2>
+                    <p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p class="text-lg">$12.99</p>
+                </div>
+                <div class="bg-gray-700 p-4 rounded">
+                    <h2 class="text-2xl font-bold mb-2">Item 3</h2>
+                    <p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p class="text-lg">$14.99</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="min-h-screen py-20 bg-gray-900">
+        <div class="container mx-auto p-4">
+            <h1 class="text-5xl font-bold mb-4">About Us</h1>
+            <p class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+        </div>
+    </section>
+    <section id="contact" class="min-h-screen py-20 bg-gray-800">
+        <div class="container mx-auto p-4">
+            <h1 class="text-5xl font-bold mb-4">Get in Touch</h1>
+            <form class="space-y-4">
+                <input type="text" placeholder="Name" class="bg-gray-600 p-2 rounded w-full">
+                <input type="email" placeholder="Email" class="bg-gray-600 p-2 rounded w-full">
+                <textarea placeholder="Message" class="bg-gray-600 p-2 rounded w-full h-32"></textarea>
+                <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Send Message</button>
+            </form>
+        </div>
+    </section>
+    <section id="reservations" class="min-h-screen py-20 bg-gray-900">
+        <div class="container mx-auto p-4">
+            <h1 class="text-5xl font-bold mb-4">Make a Reservation</h1>
+            <form class="space-y-4">
+                <input type="text" placeholder="Name" class="bg-gray-600 p-2 rounded w-full">
+                <input type="date" placeholder="Date" class="bg-gray-600 p-2 rounded w-full">
+                <input type="time" placeholder="Time" class="bg-gray-600 p-2 rounded w-full">
+                <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Make Reservation</button>
+            </form>
+        </div>
+    </section>
+    <script>
+        // Smooth scrolling
+        const links = document.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Online ordering
+        const orderButton = document.querySelector('#home button');
+        orderButton.addEventListener('click', () => {
+            alert('Order placed successfully!');
+        });
+
+        // Menu viewer
+        const menuItems = document.querySelectorAll('#menu div');
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                alert('Item added to cart!');
+            });
+        });
+
+        // Photo gallery
+        const gallery = document.querySelector('#about');
+        gallery.innerHTML += `
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <img src="image1.jpg" alt="Image 1" class="w-full h-full object-cover">
+                <img src="image2.jpg" alt="Image 2" class="w-full h-full object-cover">
+                <img src="image3.jpg" alt="Image 3" class="w-full h-full object-cover">
+            </div>
+        `;
+
+        // Customer reviews
+        const reviews = document.querySelector('#contact');
+        reviews.innerHTML += `
+            <div class="space-y-4">
+                <p>Review 1</p>
+                <p>Review 2</p>
+                <p>Review 3</p>
+            </div>
+        `;
+
+        // Payment gateway integration
+        const paymentButton = document.querySelector('#reservations button');
+        paymentButton.addEventListener('click', () => {
+            alert('Payment successful!');
+        });
+
+        // Reservation system
+        const reservationForm = document.querySelector('#reservations form');
+        reservationForm.addEventListener('submit', event => {
+            event.preventDefault();
+            alert('Reservation made successfully!');
+        });
+    </script>
+</body>
+</html>

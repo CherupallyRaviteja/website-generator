@@ -4,8 +4,9 @@ from flask import Flask, request
 from dotenv import load_dotenv
 from ai.planner import generate_website_plan
 from ai.website_generator import generate_website_code
-from deployment.deployer import deploy_to_netlify
+
 from deployment.vercel_deployer import deploy_to_vercel
+from generate_homepage import generate_homepage
 from generator.builder import save_website
 from twilio.twiml.messaging_response import MessagingResponse
 
@@ -29,6 +30,7 @@ def webhook():
         html,
         project_name
     )
+    generate_homepage()
     deploy_to_vercel("generated")
     live_url = f"https://generated-nu.vercel.app/{path}"
     print("LIVE URL:", live_url)
